@@ -9,10 +9,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ProductService } from './product.service';
+import { CategoryService} from './category.service';
 import { FormatCurrencyPipe } from './format-currency.pipe';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 const appRoutes: Routes = [
+     { path: '', component: ItemListComponent },
+     { path: 'category-product/:id', component: ItemListComponent },  
      { path: 'about-us', component: AboutUsComponent },
 ];
 
@@ -24,13 +28,14 @@ const appRoutes: Routes = [
     FooterComponent,
     ItemListComponent,
     FormatCurrencyPipe,
-    AboutUsComponent
+    AboutUsComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ProductService],
+  providers: [ProductService,CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
